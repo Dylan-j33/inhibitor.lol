@@ -2,4 +2,11 @@
 
 ----> Rassembler dpm.lol et mobalytics sur un seul site 
 
-Lancer le serveur : npx nodemon server.js
+-le nom de l'invocateur
+-le rank en classée solo/duo
+-le rank des saisons précédentes
+-les champions jouées, leur kda et leur winrate ainsi que les cs/mn et dmg/mn
+-les autres invocateurs récemment joués avec (3 parties ou +)
+-le winrate par role
+-l'icone de profil
+

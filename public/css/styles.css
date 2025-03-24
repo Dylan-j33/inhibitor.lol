@@ -1,173 +1,109 @@
-/* Global Styles */
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
+
+/* Styles généraux */
 body {
-    font-family: 'Arial', sans-serif;
-    background-color: #f4f4f4;
+    font-family: 'Inter', sans-serif;
+    background-color: #0A0F1F;
+    color: #fff;
     margin: 0;
     padding: 0;
-    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
 }
 
-/* Container */
 .container {
-    width: 80%;
-    margin: 0 auto;
-    background-color: #ffffff;
+    width: 90%;
+    max-width: 800px;
+    background: #131A2A;
     padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    margin-top: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
-/* Header */
 .header {
     display: flex;
     align-items: center;
+    gap: 15px;
     margin-bottom: 20px;
-    border-bottom: 2px solid #eee;
+    border-bottom: 2px solid #1E2A46;
     padding-bottom: 10px;
 }
 
-.header img {
-    border-radius: 50%;
-    margin-right: 20px;
-    border: 3px solid #ffcc00;
+.header .info img {
+    width: 100px;
 }
 
-.header h1 {
-    margin: 0;
-    font-size: 36px;
-    font-weight: bold;
-    color: #333;
-}
-
-.header p {
-    margin: 5px 0;
-    font-size: 18px;
-    color: #666;
-}
-
-/* Rank */
-.rank {
-    color: #ffcc00;
-    font-weight: bold;
-}
-
-/* Profile Sections */
-.profile-section {
-    margin-bottom: 30px;
-}
-
-.section-title {
-    font-size: 24px;
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 15px;
-}
-
-/* Champions Played */
-.section-content {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
-
-.champion {
-    width: 30%;
-    margin-bottom: 20px;
-    text-align: center;
-    background-color: #f9f9f9;
-    border-radius: 10px;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
-    padding: 10px;
-    transition: all 0.3s ease-in-out;
-}
-
-.champion:hover {
-    transform: translateY(-5px);
-}
-
-.champion img {
+.image-invocateur {
     width: 80px;
     height: 80px;
     border-radius: 50%;
-    border: 2px solid #ffcc00;
-    margin-bottom: 10px;
+    border: 3px solid #007BFF;
 }
 
-.champion-info p {
+.header .info {
+    flex-grow: 1;
+}
+
+.info h1 {
+    font-size: 24px;
+    margin: 0;
+    color: #4DA8DA;
+}
+
+.info p {
     margin: 5px 0;
     font-size: 14px;
-    color: #666;
+    color: #B0C4DE;
 }
 
-/* Game History */
-.game-history {
-    margin-top: 30px;
+.history {
+    background: #0F172A;
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 10px;
 }
 
-.game {
-    background-color: #fafafa;
-    padding: 20px;
-    margin-bottom: 20px;
-    border-radius: 10px;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease-in-out;
-}
-
-.game:hover {
-    transform: translateY(-5px);
-}
-
-.game-header {
+.match {
     display: flex;
-    justify-content: space-between;
-    border-bottom: 2px solid #eee;
-    padding-bottom: 10px;
-    margin-bottom: 10px;
+    align-items: center;
+    gap: 15px;
+    padding: 10px;
+    background: #1E293B;
+    border-radius: 5px;
+    margin-top: 10px;
 }
 
-.game-header h3 {
+.match img {
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+}
+
+.match .details {
+    flex-grow: 1;
+}
+
+.details h2 {
+    font-size: 18px;
     margin: 0;
-    font-size: 22px;
-    font-weight: bold;
+    color: #4DA8DA;
 }
 
-.game-header .result {
-    font-weight: bold;
-    color: #4CAF50;
-}
-
-.game-details {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-.game-detail {
-    width: 50%;
+.details p {
+    margin: 5px 0;
     font-size: 14px;
-    margin-bottom: 10px;
+    color: #B0C4DE;
 }
 
-.game-detail strong {
+.victory {
+    color: #1CC760;
     font-weight: bold;
 }
 
-/* Item Icons */
-.item-icons img {
-    width: 30px;
-    height: 30px;
-    margin-right: 5px;
+.defeat {
+    color: #E63946;
+    font-weight: bold;
 }
-
-/* Additional Styles */
-.section-content p {
-    font-size: 16px;
-    color: #333;
-    padding: 5px;
-}
-
-.game-header .result {
-    color: #ff5252;
-}
-
