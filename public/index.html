@@ -4,279 +4,101 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profil de l'Invocateur</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="stylesheet" href="css/styles.css">
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #121d2e; /* Fond sombre bleu */
-            margin: 0;
-            padding: 0;
-            color: #fff;
-        }
-        .container {
-            width: 80%;
-            margin: 0 auto;
-            background-color: #1d2a3a; /* Bleu foncé pour l'arrière-plan de la page */
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-        }
-        .header {
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
-            background-color: #2a3c54; /* Bleu plus clair pour l'en-tête */
-            padding: 15px;
-            border-radius: 8px;
-        }
-        .header img {
-            border-radius: 50%;
-            margin-right: 20px;
-        }
-        .header h1 {
-            margin: 0;
-            font-size: 32px;
-            font-weight: bold;
-            color: #4fc3f7; /* Bleu clair */
-        }
-        .header p {
-            margin: 5px 0;
-            font-size: 18px;
-            color: #b0bec5; /* Gris clair pour les autres textes */
-        }
-        .rank {
-            font-size: 20px;
-            font-weight: bold;
-            color: #4fc3f7; /* Bleu clair pour le rang */
-        }
-        .profile-section {
-            margin-bottom: 30px;
-        }
-        .section-title {
-            font-size: 26px;
-            margin-bottom: 15px;
-            color: #4fc3f7; /* Titre de section en bleu clair */
-            border-bottom: 2px solid #4fc3f7;
-            padding-bottom: 5px;
-        }
-        .section-content {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-        .champion {
-            background-color: #2a3c54; /* Bleu pour les cartes des champions */
-            width: 30%;
-            padding: 15px;
-            border-radius: 8px;
-            text-align: center;
-            transition: transform 0.3s ease;
-        }
-        .champion:hover {
-            transform: scale(1.05);
-            background-color: #3b4d68; /* Effet hover légèrement plus clair */
-        }
-        .champion img {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            border: 3px solid #4fc3f7; /* Bordure bleue autour de l'image du champion */
-        }
-        .champion-info {
-            margin-top: 15px;
-            color: #b0bec5; /* Gris clair pour les informations */
-        }
-        .game-history {
-            margin-top: 30px;
-        }
-        .game {
-            background-color: #2a3c54;
-            padding: 20px;
-            margin-bottom: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            transition: background-color 0.3s ease;
-        }
-        .game:hover {
-            background-color: #3b4d68;
-        }
-        .game-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            color: #4fc3f7;
-        }
-        .game-header h3 {
-            margin: 0;
-            font-size: 22px;
-        }
-        .result {
-            font-weight: bold;
-            padding: 5px 10px;
-            border-radius: 5px;
-        }
-        .result.victory {
-            background-color: #64b5f6; /* Bleu clair pour victoire */
-            color: white;
-        }
-        .result.defeat {
-            background-color: #ff5252; /* Rouge pour défaite */
-            color: white;
-        }
-        .game-details {
-            margin-top: 10px;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-        }
-        .game-detail {
-            width: 50%;
-            font-size: 14px;
-        }
-        .game-detail strong {
-            font-weight: bold;
-        }
-        .item-icons img {
-            width: 30px;
-            height: 30px;
-            margin-right: 5px;
-        }
-    </style>
 </head>
 <body>
-    <div class="container">
-        <!-- Header -->
-        <div class="header">
-            <img src="https://raw.communitydragon.org/pbe/plugins/rcp-be-lol-game-data/global/default/v1/profile-icons/6853.jpg" alt="Profile Icon" width="80" height="80">
-            <div>
-                <h1>Invocateur123</h1>
-                <p>Rank: <span class="rank">Diamant 2</span></p>
-                <p>Saison précédente: Platine III</p>
-            </div>
-        </div>
-
-        <!-- Champion Stats -->
-        <div class="profile-section">
-            <div class="section-title">Champions Joués</div>
-            <div class="section-content">
-                <!-- Champion 1 -->
-                <div class="champion">
-                    <img src="https://raw.communitydragon.org/pbe/plugins/rcp-be-lol-game-data/global/default/v1/profile-icons/5613.jpg" alt="Champion 1">
-                    <div class="champion-info">
-                        <p>KDA: 3.5</p>
-                        <p>Winrate: 60%</p>
-                        <p>CS/MN: 7.5</p>
-                        <p>DMG/MN: 350</p>
-                    </div>
-                </div>
-                <!-- Champion 2 -->
-                <div class="champion">
-                    <img src="https://raw.communitydragon.org/pbe/plugins/rcp-be-lol-game-data/global/default/v1/profile-icons/5613.jpg" alt="Champion 2">
-                    <div class="champion-info">
-                        <p>KDA: 3.5</p>
-                        <p>Winrate: 60%</p>
-                        <p>CS/MN: 7.5</p>
-                        <p>DMG/MN: 350</p>
-                    </div>
-                </div>
-                <!-- Champion 3 -->
-                <div class="champion">
-                    <img src="https://raw.communitydragon.org/pbe/plugins/rcp-be-lol-game-data/global/default/v1/profile-icons/5613.jpg" alt="Champion 3">
-                    <div class="champion-info">
-                        <p>KDA: 3.5</p>
-                        <p>Winrate: 60%</p>
-                        <p>CS/MN: 7.5</p>
-                        <p>DMG/MN: 350</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Recent Players -->
-        <div class="profile-section">
-            <div class="section-title">Autres Invocateurs Joués Récemment</div>
-            <div class="section-content">
-                <p>Invocateur 1</p>
-                <p>Invocateur 2</p>
-                <p>Invocateur 3</p>
-            </div>
-        </div>
-
-        <!-- Winrate par Role -->
-        <div class="profile-section">
-            <div class="section-title">Winrate par Role</div>
-            <div class="section-content">
-                <p>Top: 60%</p>
-                <p>Jungle: 55%</p>
-                <p>Mid: 62%</p>
-                <p>Bot: 58%</p>
-                <p>Support: 53%</p>
-            </div>
-        </div>
-
-        <!-- Game History -->
-        <div class="game-history">
-            <div class="section-title">Historique des Parties</div>
-            <!-- Partie 1 -->
-            <div class="game">
-                <div class="game-header">
-                    <h3>Partie 1</h3>
-                    <p class="result victory">Victoire</p>
-                </div>
-                <div class="game-details">
-                    <div class="game-detail"><strong>Champion:</strong> Ezreal</div>
-                    <div class="game-detail"><strong>Champion Ennemis:</strong> Yasuo</div>
-                    <div class="game-detail"><strong>Items:</strong>
-                        <div class="item-icons">
-                            <img src="https://lol-db.com/path/to/item1-icon.png" alt="Kraken Slayer">
-                            <img src="https://lol-db.com/path/to/item2-icon.png" alt="Galeforce">
+    <header></header>
+    <div class="container" style="width: 90%;">
+        <div class="row">
+            <div class="col-3" style="background-color: blueviolet;">
+                <div style="padding: 10px; color: white;">
+                    <p>Classé Solo</p>
+                    <div style="flex-wrap: nowrap;display:flex;">
+                        <img src="https://static1.millenium.org/article_old/images/contenu/actus/LOL/PBE/icons/lol_icone_ligue_ranked_diamant.png" style="width: 80px;">
+                        <div>
+                            <p>Diamant V 78LP</p>
+                            <p>80W - 36L (34%)</p>
                         </div>
                     </div>
-                    <div class="game-detail"><strong>Sorts:</strong> Flash, Heal</div>
-                    <div class="game-detail"><strong>KDA:</strong> 8/2/6</div>
-                    <div class="game-detail"><strong>CS/MN:</strong> 9.0</div>
-                    <div class="game-detail"><strong>DMG/MN:</strong> 400</div>
-                    <div class="game-detail"><strong>Dragons tués:</strong> 2</div>
-                    <div class="game-detail"><strong>Nashors tués:</strong> 1</div>
-                    <div class="game-detail"><strong>Héralds tués:</strong> 1</div>
-                    <div class="game-detail"><strong>Tours prises:</strong> 3</div>
-                    <div class="game-detail"><strong>Grubs pris:</strong> 6</div>
-                    <div class="game-detail"><strong>LP gagnés:</strong> 25</div>
-                    <div class="game-detail"><strong>Runes:</strong> Conqueror, Triumph, Legend: Alacrity</div>
-                    <div class="game-detail"><strong>Invocateurs ennemis:</strong> InvocateurA (Gold IV), InvocateurB (Platine II)</div>
                 </div>
-            </div>
-
-            <!-- Partie 2 -->
-            <div class="game">
-                <div class="game-header">
-                    <h3>Partie 2</h3>
-                    <p class="result defeat">Défaite</p>
-                </div>
-                <div class="game-details">
-                    <div class="game-detail"><strong>Champion:</strong> Jinx</div>
-                    <div class="game-detail"><strong>Champion Ennemis:</strong> Kai'Sa</div>
-                    <div class="game-detail"><strong>Items:</strong>
-                        <div class="item-icons">
-                            <img src="https://lol-db.com/path/to/item1-icon.png" alt="Kraken Slayer">
-                            <img src="https://lol-db.com/path/to/item2-icon.png" alt="Infinity Edge">
+                <div style="padding: 10px; color: white;">
+                    <p>Classé Flex</p>
+                    <div style="flex-wrap: nowrap;display:flex;">
+                        <img src="https://support-leagueoflegends.riotgames.com/hc/article_attachments/36727001221011" style="width: 80px;">
+                        <div>
+                            <p>Challenger 278LP</p>
+                            <p>870W - 336L (34%)</p>
                         </div>
                     </div>
-                    <div class="game-detail"><strong>Sorts:</strong> Flash, Heal</div>
-                    <div class="game-detail"><strong>KDA:</strong> 5/8/2</div>
-                    <div class="game-detail"><strong>CS/MN:</strong> 7.2</div>
-                    <div class="game-detail"><strong>DMG/MN:</strong> 340</div>
-                    <div class="game-detail"><strong>Dragons tués:</strong> 1</div>
-                    <div class="game-detail"><strong>Nashors tués:</strong> 0</div>
-                    <div class="game-detail"><strong>Héralds tués:</strong> 0</div>
-                    <div class="game-detail"><strong>Tours prises:</strong> 1</div>
-                    <div class="game-detail"><strong>Grubs pris:</strong> 4</div>
-                    <div class="game-detail"><strong>LP gagnés:</strong> 0</div>
-                    <div class="game-detail"><strong>Runes:</strong> Lethal Tempo, Triumph, Last Stand</div>
-                    <div class="game-detail"><strong>Invocateurs ennemis:</strong> InvocateurC (Gold III), InvocateurD (Platine I)</div>
+                </div>
+                <div style="padding: 10px; color: white;">
+                    <p>Performance par champion</p>
+                    <table style="width: 100%; text-align: center;">
+                        <tr>
+                            <th>X</th>
+                            <th>KDA</th>
+                            <th>Parties</th>
+                            <th>WR</th>
+                        </tr>
+                        <tr style="padding: 5px;">
+                            <td><img src="https://cdn.communitydragon.org/15.6.1/champion/Yorick/square" style="width: 40px;"></td>
+                            <td>
+                                <div>
+                                    <p style="margin:0px">2.8</p>
+                                    <p style="font-size: 10px;margin:0px">4.4 / 3.9 / 6.7</p>
+                                </div>
+                            </td>
+                            <td>39</td>
+                            <td>51%</td>
+                        </tr>
+                        <tr style="padding: 5px;">
+                            <td><img src="https://cdn.communitydragon.org/15.6.1/champion/Briar/square" style="width: 40px;"></td>
+                            <td>
+                                <div>
+                                    <p style="margin:0px">2.8</p>
+                                    <p style="font-size: 10px;margin:0px">4.4 / 3.9 / 6.7</p>
+                                </div>
+                            </td>
+                            <td>39</td>
+                            <td>51%</td>
+                        </tr>
+                        <tr style="padding: 5px;">
+                            <td><img src="https://cdn.communitydragon.org/15.6.1/champion/Smolder/square" style="width: 40px;"></td>
+                            <td>
+                                <div>
+                                    <p style="margin:0px">2.8</p>
+                                    <p style="font-size: 10px;margin:0px">4.4 / 3.9 / 6.7</p>
+                                </div>
+                            </td>
+                            <td>39</td>
+                            <td>51%</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <div class="col-9" style="background-color: brown;">
+                <div>
+                    <h3 style="text-align: left;color: white;">08 Oct</h3>
+                    <div>
+                        <div>
+                            <div>
+                                <p>28:30</p>
+                                <p>Il y a 15m</p>
+                            </div>
+                            <p>Solo/Duo</p>
+                        </div>
+                        <img src="https://cdn.communitydragon.org/15.6.1/champion/Smolder/square" style="width: 40px;">
+                        <div>
+                            <p>5 / 4 / 9</p>
+                            <p> | </p>
+                            <p>4.7 KDA</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 </body>
 </html>
