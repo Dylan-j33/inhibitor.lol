@@ -7,23 +7,27 @@
     <link rel="stylesheet" href="css/styles.css">
     <style>
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            font-family: 'Arial', sans-serif;
+            background-color: #121d2e; /* Fond sombre bleu */
             margin: 0;
             padding: 0;
+            color: #fff;
         }
         .container {
             width: 80%;
             margin: 0 auto;
-            background-color: #ffffff;
+            background-color: #1d2a3a; /* Bleu foncé pour l'arrière-plan de la page */
             padding: 20px;
             border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
         }
         .header {
             display: flex;
             align-items: center;
             margin-bottom: 20px;
+            background-color: #2a3c54; /* Bleu plus clair pour l'en-tête */
+            padding: 15px;
+            border-radius: 8px;
         }
         .header img {
             border-radius: 50%;
@@ -33,76 +37,109 @@
             margin: 0;
             font-size: 32px;
             font-weight: bold;
+            color: #4fc3f7; /* Bleu clair */
         }
         .header p {
-            margin: 0;
+            margin: 5px 0;
             font-size: 18px;
-            color: #666;
+            color: #b0bec5; /* Gris clair pour les autres textes */
         }
         .rank {
-            font-size: 18px;
+            font-size: 20px;
             font-weight: bold;
-            color: #ffcc00;
+            color: #4fc3f7; /* Bleu clair pour le rang */
         }
         .profile-section {
-            margin-bottom: 20px;
+            margin-bottom: 30px;
         }
         .section-title {
-            font-size: 24px;
-            margin-bottom: 10px;
+            font-size: 26px;
+            margin-bottom: 15px;
+            color: #4fc3f7; /* Titre de section en bleu clair */
+            border-bottom: 2px solid #4fc3f7;
+            padding-bottom: 5px;
         }
         .section-content {
             display: flex;
             flex-wrap: wrap;
+            gap: 15px;
         }
         .champion {
+            background-color: #2a3c54; /* Bleu pour les cartes des champions */
             width: 30%;
-            margin-right: 10px;
-            margin-bottom: 10px;
+            padding: 15px;
+            border-radius: 8px;
             text-align: center;
+            transition: transform 0.3s ease;
+        }
+        .champion:hover {
+            transform: scale(1.05);
+            background-color: #3b4d68; /* Effet hover légèrement plus clair */
         }
         .champion img {
-            width: 60px;
-            height: 60px;
+            width: 80px;
+            height: 80px;
             border-radius: 50%;
+            border: 3px solid #4fc3f7; /* Bordure bleue autour de l'image du champion */
         }
         .champion-info {
-            margin-top: 10px;
+            margin-top: 15px;
+            color: #b0bec5; /* Gris clair pour les informations */
         }
         .game-history {
             margin-top: 30px;
         }
         .game {
-            background-color: #fafafa;
-            padding: 10px;
+            background-color: #2a3c54;
+            padding: 20px;
             margin-bottom: 20px;
-            border-radius: 10px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+        }
+        .game:hover {
+            background-color: #3b4d68;
         }
         .game-header {
             display: flex;
             justify-content: space-between;
+            align-items: center;
+            color: #4fc3f7;
         }
         .game-header h3 {
             margin: 0;
-            font-size: 20px;
+            font-size: 22px;
         }
-        .game-header .result {
+        .result {
             font-weight: bold;
-            color: green;
+            padding: 5px 10px;
+            border-radius: 5px;
+        }
+        .result.victory {
+            background-color: #64b5f6; /* Bleu clair pour victoire */
+            color: white;
+        }
+        .result.defeat {
+            background-color: #ff5252; /* Rouge pour défaite */
+            color: white;
         }
         .game-details {
             margin-top: 10px;
             display: flex;
             flex-wrap: wrap;
+            gap: 20px;
         }
         .game-detail {
             width: 50%;
             font-size: 14px;
-            margin-bottom: 10px;
         }
         .game-detail strong {
             font-weight: bold;
+        }
+        .item-icons img {
+            width: 30px;
+            height: 30px;
+            margin-right: 5px;
         }
     </style>
 </head>
@@ -110,10 +147,10 @@
     <div class="container">
         <!-- Header -->
         <div class="header">
-            <img src="https://lol-db.com/path/to/profile-icon.png" alt="Profile Icon" width="80" height="80">
+            <img src="https://raw.communitydragon.org/pbe/plugins/rcp-be-lol-game-data/global/default/v1/profile-icons/6853.jpg" alt="Profile Icon" width="80" height="80">
             <div>
                 <h1>Invocateur123</h1>
-                <p>Rank: <span class="rank">Gold I</span></p>
+                <p>Rank: <span class="rank">Diamant 2</span></p>
                 <p>Saison précédente: Platine III</p>
             </div>
         </div>
@@ -124,7 +161,7 @@
             <div class="section-content">
                 <!-- Champion 1 -->
                 <div class="champion">
-                    <img src="https://lol-db.com/path/to/champion1-icon.png" alt="Champion 1">
+                    <img src="https://raw.communitydragon.org/pbe/plugins/rcp-be-lol-game-data/global/default/v1/profile-icons/5613.jpg" alt="Champion 1">
                     <div class="champion-info">
                         <p>KDA: 3.5</p>
                         <p>Winrate: 60%</p>
@@ -134,22 +171,22 @@
                 </div>
                 <!-- Champion 2 -->
                 <div class="champion">
-                    <img src="https://lol-db.com/path/to/champion2-icon.png" alt="Champion 2">
+                    <img src="https://raw.communitydragon.org/pbe/plugins/rcp-be-lol-game-data/global/default/v1/profile-icons/5613.jpg" alt="Champion 2">
                     <div class="champion-info">
-                        <p>KDA: 4.2</p>
-                        <p>Winrate: 65%</p>
-                        <p>CS/MN: 6.9</p>
-                        <p>DMG/MN: 400</p>
+                        <p>KDA: 3.5</p>
+                        <p>Winrate: 60%</p>
+                        <p>CS/MN: 7.5</p>
+                        <p>DMG/MN: 350</p>
                     </div>
                 </div>
                 <!-- Champion 3 -->
                 <div class="champion">
-                    <img src="https://lol-db.com/path/to/champion3-icon.png" alt="Champion 3">
+                    <img src="https://raw.communitydragon.org/pbe/plugins/rcp-be-lol-game-data/global/default/v1/profile-icons/5613.jpg" alt="Champion 3">
                     <div class="champion-info">
-                        <p>KDA: 2.8</p>
-                        <p>Winrate: 55%</p>
-                        <p>CS/MN: 5.8</p>
-                        <p>DMG/MN: 310</p>
+                        <p>KDA: 3.5</p>
+                        <p>Winrate: 60%</p>
+                        <p>CS/MN: 7.5</p>
+                        <p>DMG/MN: 350</p>
                     </div>
                 </div>
             </div>
@@ -184,7 +221,7 @@
             <div class="game">
                 <div class="game-header">
                     <h3>Partie 1</h3>
-                    <p class="result">Victoire</p>
+                    <p class="result victory">Victoire</p>
                 </div>
                 <div class="game-details">
                     <div class="game-detail"><strong>Champion:</strong> Ezreal</div>
@@ -214,7 +251,7 @@
             <div class="game">
                 <div class="game-header">
                     <h3>Partie 2</h3>
-                    <p class="result">Défaite</p>
+                    <p class="result defeat">Défaite</p>
                 </div>
                 <div class="game-details">
                     <div class="game-detail"><strong>Champion:</strong> Jinx</div>
@@ -236,41 +273,9 @@
                     <div class="game-detail"><strong>Grubs pris:</strong> 4</div>
                     <div class="game-detail"><strong>LP gagnés:</strong> 0</div>
                     <div class="game-detail"><strong>Runes:</strong> Lethal Tempo, Triumph, Last Stand</div>
-                    <div class="game-detail"><strong>Invocateurs ennemis:</strong> InvocateurX (Diamond III), InvocateurY (Gold I)</div>
+                    <div class="game-detail"><strong>Invocateurs ennemis:</strong> InvocateurC (Gold III), InvocateurD (Platine I)</div>
                 </div>
             </div>
-
-            <!-- Partie 3 -->
-            <div class="game">
-                <div class="game-header">
-                    <h3>Partie 3</h3>
-                    <p class="result">Victoire</p>
-                </div>
-                <div class="game-details">
-                    <div class="game-detail"><strong>Champion:</strong> Ahri</div>
-                    <div class="game-detail"><strong>Champion Ennemis:</strong> Zed</div>
-                    <div class="game-detail"><strong>Items:</strong>
-                        <div class="item-icons">
-                            <img src="https://lol-db.com/path/to/item3-icon.png" alt="Luden's Echo">
-                            <img src="https://lol-db.com/path/to/item4-icon.png" alt="Zhonya's Hourglass">
-                        </div>
-                    </div>
-                    <div class="game-detail"><strong>Sorts:</strong> Flash, Ignite</div>
-                    <div class="game-detail"><strong>KDA:</strong> 9/1/4</div>
-                    <div class="game-detail"><strong>CS/MN:</strong> 8.2</div>
-                    <div class="game-detail"><strong>DMG/MN:</strong> 470</div>
-                    <div class="game-detail"><strong>Dragons tués:</strong> 3</div>
-                    <div class="game-detail"><strong>Nashors tués:</strong> 1</div>
-                    <div class="game-detail"><strong>Héralds tués:</strong> 0</div>
-                    <div class="game-detail"><strong>Tours prises:</strong> 2</div>
-                    <div class="game-detail"><strong>Grubs pris:</strong> 5</div>
-                    <div class="game-detail"><strong>LP gagnés:</strong> 30</div>
-                    <div class="game-detail"><strong>Runes:</strong> Electrocute, Taste of Blood, Ultimate Hunter</div>
-                    <div class="game-detail"><strong>Invocateurs ennemis:</strong> InvocateurM (Gold I), InvocateurN (Platine IV)</div>
-                </div>
-            </div>
-            <!-- Game 2 -->
-            <!-- Ajoute ici plus de parties selon le même modèle -->
         </div>
     </div>
 </body>

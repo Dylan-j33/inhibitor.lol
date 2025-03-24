@@ -1,137 +1,146 @@
 /* Global Styles */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     background-color: #f4f4f4;
     margin: 0;
     padding: 0;
+    color: #333;
 }
 
+/* Container */
 .container {
-    width: 85%;
+    width: 80%;
     margin: 0 auto;
     background-color: #ffffff;
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    margin-top: 30px;
 }
 
+/* Header */
 .header {
     display: flex;
     align-items: center;
     margin-bottom: 20px;
-    background-color: #F2F3F5;
-    padding: 20px;
-    border-radius: 8px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
 }
 
-.profile-icon {
+.header img {
     border-radius: 50%;
     margin-right: 20px;
+    border: 3px solid #ffcc00;
 }
 
 .header h1 {
     margin: 0;
-    font-size: 32px;
+    font-size: 36px;
     font-weight: bold;
     color: #333;
 }
 
-.rank {
+.header p {
+    margin: 5px 0;
     font-size: 18px;
-    font-weight: bold;
-    color: #ffcc00;
-}
-
-.previous-rank {
-    font-size: 16px;
     color: #666;
 }
 
+/* Rank */
+.rank {
+    color: #ffcc00;
+    font-weight: bold;
+}
+
+/* Profile Sections */
 .profile-section {
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 .section-title {
     font-size: 24px;
     font-weight: bold;
-    margin-bottom: 10px;
+    color: #333;
+    margin-bottom: 15px;
 }
 
-.champion-list {
+/* Champions Played */
+.section-content {
     display: flex;
     flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 .champion {
     width: 30%;
-    margin-right: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     text-align: center;
-    background-color: #f8f9fa;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    transition: all 0.3s ease-in-out;
+}
+
+.champion:hover {
+    transform: translateY(-5px);
 }
 
 .champion img {
-    width: 60px;
-    height: 60px;
+    width: 80px;
+    height: 80px;
     border-radius: 50%;
+    border: 2px solid #ffcc00;
     margin-bottom: 10px;
 }
 
-.champion-info {
+.champion-info p {
+    margin: 5px 0;
     font-size: 14px;
-    color: #444;
+    color: #666;
 }
 
-.recent-players p {
-    font-size: 16px;
-    margin: 5px 0;
-}
-
-.roles-winrate p {
-    font-size: 16px;
-    margin: 5px 0;
-}
-
+/* Game History */
 .game-history {
     margin-top: 30px;
 }
 
 .game {
     background-color: #fafafa;
-    padding: 15px;
+    padding: 20px;
     margin-bottom: 20px;
     border-radius: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
+}
+
+.game:hover {
+    transform: translateY(-5px);
 }
 
 .game-header {
     display: flex;
     justify-content: space-between;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
     margin-bottom: 10px;
 }
 
 .game-header h3 {
     margin: 0;
-    font-size: 20px;
-    color: #333;
+    font-size: 22px;
+    font-weight: bold;
 }
 
-.result {
+.game-header .result {
     font-weight: bold;
     color: #4CAF50;
 }
 
-.victory {
-    color: green;
-}
-
 .game-details {
-    margin-top: 10px;
     display: flex;
     flex-wrap: wrap;
+    gap: 10px;
 }
 
 .game-detail {
@@ -142,11 +151,23 @@ body {
 
 .game-detail strong {
     font-weight: bold;
-    color: #555;
 }
 
+/* Item Icons */
 .item-icons img {
-    width: 24px;
-    height: 24px;
+    width: 30px;
+    height: 30px;
     margin-right: 5px;
 }
+
+/* Additional Styles */
+.section-content p {
+    font-size: 16px;
+    color: #333;
+    padding: 5px;
+}
+
+.game-header .result {
+    color: #ff5252;
+}
+
