@@ -1,0 +1,152 @@
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 85%;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    background-color: #F2F3F5;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.profile-icon {
+    border-radius: 50%;
+    margin-right: 20px;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 32px;
+    font-weight: bold;
+    color: #333;
+}
+
+.rank {
+    font-size: 18px;
+    font-weight: bold;
+    color: #ffcc00;
+}
+
+.previous-rank {
+    font-size: 16px;
+    color: #666;
+}
+
+.profile-section {
+    margin-bottom: 20px;
+}
+
+.section-title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.champion-list {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.champion {
+    width: 30%;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    text-align: center;
+    background-color: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.champion img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    margin-bottom: 10px;
+}
+
+.champion-info {
+    font-size: 14px;
+    color: #444;
+}
+
+.recent-players p {
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+.roles-winrate p {
+    font-size: 16px;
+    margin: 5px 0;
+}
+
+.game-history {
+    margin-top: 30px;
+}
+
+.game {
+    background-color: #fafafa;
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.game-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.game-header h3 {
+    margin: 0;
+    font-size: 20px;
+    color: #333;
+}
+
+.result {
+    font-weight: bold;
+    color: #4CAF50;
+}
+
+.victory {
+    color: green;
+}
+
+.game-details {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.game-detail {
+    width: 50%;
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.game-detail strong {
+    font-weight: bold;
+    color: #555;
+}
+
+.item-icons img {
+    width: 24px;
+    height: 24px;
+    margin-right: 5px;
+}
