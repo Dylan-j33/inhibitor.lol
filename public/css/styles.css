@@ -107,3 +107,27 @@ body {
     color: #E63946;
     font-weight: bold;
 }
+
+.adversaires div img {
+    width: 30px !important;
+    height: 30px !important;
+}
+
+.adversaires {
+    display: flex;
+    margin: auto;
+}
+
+.adversaires div {
+    margin: auto;
+    padding: 10px;
+}
+
+.items img {
+    width: 30px;
+    height: 30px;
+}
+
+.items {
+    display: flex;
+}
