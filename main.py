@@ -1,64 +1,57 @@
+from fastapi import FastAPI, HTTPException
 import httpx
-import json
+from config import RIOT_API_KEY  # Import de la clé API
 
-# Remplace cette variable par ta propre clé API Riot
-API_KEY = 'ta-cle-api-ici'
+app = FastAPI()
 
-# Fonction pour récupérer l'ID d'un invocateur par son nom
-async def get_summoner_id(summoner_name, region='na1'):
-    url = f'https://{region}.api.riotgames.com/lol/summoner/v4/summoners/by-name/{summoner_name}'
-    headers = {
-        'X-Riot-Token': API_KEY
-    }
+# Route pour récupérer un joueur par Riot ID (gameName + tagLine)
+@app.get("/riotid/{game_name}/{tag_line}")
+async def get_summoner_by_riot_id(game_name: str, tag_line: str):
+    url = f"https://europe.api.riotgames.com/riot/account/v1/accounts/by-riot-id/{game_name}/{tag_line}"
+    headers = {"X-Riot-Token": RIOT_API_KEY}
 
     async with httpx.AsyncClient() as client:
         response = await client.get(url, headers=headers)
 
-    if response.status_code == 200:
-        summoner_data = response.json()
-        return summoner_data['id']
-    else:
-        print(f"Erreur lors de la récupération de l'ID : {response.status_code}")
-        return None
+    print(response.status_code, response.text)  # Debug ici ⬅️
 
-# Fonction pour récupérer les données de ligue d'un invocateur
-async def get_league_data(summoner_id, region='na1'):
-    url = f'https://{region}.api.riotgames.com/lol/league/v4/entries/by-account/{summoner_id}'
-    headers = {
-        'X-Riot-Token': API_KEY
-    }
+    if response.status_code != 200:
+        raise HTTPException(status_code=response.status_code, detail=response.text)  # Montrer l'erreur exacte
+
+    return response.json()
+
+@app.get("/rank/{game_name}/{tag_line}")
+async def get_summoner_rank(game_name: str, tag_line: str):
+    riot_id_url = f"https://europe.api.riotgames.com/riot/account/v1/accounts/by-riot-id/{game_name}/{tag_line}"
+    headers = {"X-Riot-Token": RIOT_API_KEY}
 
     async with httpx.AsyncClient() as client:
-        response = await client.get(url, headers=headers)
+        response = await client.get(riot_id_url, headers=headers)
+    
+    if response.status_code != 200:
+        raise HTTPException(status_code=response.status_code, detail="Erreur lors de la récupération du PUUID")
+    
+    puuid = response.json()["puuid"]
 
-    if response.status_code == 200:
-        league_data = response.json()
-        for entry in league_data:
-            if entry['queueType'] == 'RANKED_SOLO_5x5':
-                return entry
-        return None
-    else:
-        print(f"Erreur lors de la récupération des données de ligue : {response.status_code}")
-        return None
+    # Étape 2 : Récupérer le summonerId à partir du PUUID
+    summoner_url = f"https://euw1.api.riotgames.com/lol/summoner/v4/summoners/by-puuid/{puuid}"
+    
+    async with httpx.AsyncClient() as client:
+        response = await client.get(summoner_url, headers=headers)
+    
+    if response.status_code != 200:
+        raise HTTPException(status_code=response.status_code, detail="Erreur lors de la récupération du summonerId")
+    
+    summoner_id = response.json()["id"]
 
-# Fonction principale
-async def main():
-    summoner_name = input("Entrez le nom de l'invocateur : ")
-    region = 'na1'  # Remplace par la région de ton choix
+    # Étape 3 : Récupérer le rank avec le summonerId
+    rank_url = f"https://euw1.api.riotgames.com/lol/league/v4/entries/by-summoner/{summoner_id}"
+    
+    async with httpx.AsyncClient() as client:
+        response = await client.get(rank_url, headers=headers)
+    
+    if response.status_code != 200:
+        raise HTTPException(status_code=response.status_code, detail="Erreur lors de la récupération du rank")
+    
+    return response.json()
 
-    summoner_id = await get_summoner_id(summoner_name, region)
-    if summoner_id:
-        league_data = await get_league_data(summoner_id, region)
-        if league_data:
-            rank = league_data['tier']
-            division = league_data['rank']
-            lp = league_data['leaguePoints']
-            print(f"Rank: {rank} {division}, LP: {lp}")
-        else:
-            print("Aucune donnée de ligue trouvée.")
-    else:
-        print("Impossible de récupérer l'ID de l'invocateur.")
-
-# Exécuter le programme
-import asyncio
-asyncio.run(main())
