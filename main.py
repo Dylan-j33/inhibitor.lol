@@ -1,26 +1,27 @@
-from fastapi import FastAPI, HTTPException
+import json
 import httpx
+from fastapi import HTTPException
 from config import RIOT_API_KEY  # Import de la clé API
 
-app = FastAPI()
+# Fonction pour enregistrer les données dans un fichier JSON
+def save_data_to_json(data):
+    try:
+        # Ouvrir le fichier JSON en mode lecture et écriture
+        with open("rank_data.json", "r+") as file:
+            # Charger les données existantes dans le fichier
+            existing_data = json.load(file)
+            # Ajouter les nouvelles données
+            existing_data.append(data)
+            # Revenir au début du fichier pour réécrire les données
+            file.seek(0)
+            # Sauvegarder les données mises à jour
+            json.dump(existing_data, file, indent=4)
+    except FileNotFoundError:
+        # Si le fichier n'existe pas, créer un nouveau fichier avec les données
+        with open("rank_data.json", "w") as file:
+            json.dump([data], file, indent=4)
 
-# Route pour récupérer un joueur par Riot ID (gameName + tagLine)
-@app.get("/riotid/{game_name}/{tag_line}")
-async def get_summoner_by_riot_id(game_name: str, tag_line: str):
-    url = f"https://europe.api.riotgames.com/riot/account/v1/accounts/by-riot-id/{game_name}/{tag_line}"
-    headers = {"X-Riot-Token": RIOT_API_KEY}
-
-    async with httpx.AsyncClient() as client:
-        response = await client.get(url, headers=headers)
-
-    print(response.status_code, response.text)  # Debug ici ⬅️
-
-    if response.status_code != 200:
-        raise HTTPException(status_code=response.status_code, detail=response.text)  # Montrer l'erreur exacte
-
-    return response.json()
-
-@app.get("/rank/{game_name}/{tag_line}")
+# Fonction pour récupérer le rank du joueur et l'enregistrer dans le JSON
 async def get_summoner_rank(game_name: str, tag_line: str):
     riot_id_url = f"https://europe.api.riotgames.com/riot/account/v1/accounts/by-riot-id/{game_name}/{tag_line}"
     headers = {"X-Riot-Token": RIOT_API_KEY}
@@ -53,5 +54,25 @@ async def get_summoner_rank(game_name: str, tag_line: str):
     if response.status_code != 200:
         raise HTTPException(status_code=response.status_code, detail="Erreur lors de la récupération du rank")
     
-    return response.json()
+    # Récupérer les données du rank
+    rank_data = response.json()
 
+    # Créer un objet avec les données importantes
+    rank_info = {
+        "leagueId": rank_data[0]["leagueId"],
+        "queueType": rank_data[0]["queueType"],
+        "tier": rank_data[0]["tier"],
+        "rank": rank_data[0]["rank"],
+        "summonerId": summoner_id,
+        "puuid": puuid,
+        "leaguePoints": rank_data[0]["leaguePoints"],
+        "wins": rank_data[0]["wins"],
+        "losses": rank_data[0]["losses"],
+        "veteran": rank_data[0]["veteran"],
+        "inactive": rank_data[0]["inactive"],
+        "freshBlood": rank_data[0]["freshBlood"],
+        "hotStreak": rank_data[0]["hotStreak"]
+    }
+
+    # Enregistrer les données dans le fichier JSON
+    save_data_to_json(rank_info)

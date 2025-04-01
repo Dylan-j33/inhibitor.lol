@@ -45,7 +45,7 @@
             <div style="text-align: center;" class="info">
                 <h1 style="color: white !important;">Solo/Duo</h1>
                 <img src="https://support-leagueoflegends.riotgames.com/hc/article_attachments/36727001221011">
-                <p>2167LP</p>
+                <p id="rank-soloq">2167LP</p>
             </div>
             <div style="text-align: center;"  class="info">
                 <h1 style="color: white !important;">Flex</h1>
@@ -204,6 +204,62 @@
                 </div>
             </div>    
         </div>
-    </div>
+<!-- Formulaire pour saisir le pseudo et le tagline -->
+<h1>Récupérer les infos du Rank d'un joueur</h1>
+    
+<div>
+    <label for="summonerName">Nom du joueur : </label>
+    <input type="text" id="summonerName" placeholder="Nom du joueur">
+    <label for="tagline">Tagline : </label>
+    <input type="text" id="tagline" placeholder="Tagline">
+    <button onclick="getRank()">Récupérer le Rank</button>
+</div>
+
+<div class="rank-info">
+    <h2>Infos du Rank :</h2>
+    <p id="rank-output">Aucune donnée</p>
+</div>
+
+<script>
+    async function getRank() {
+        const summonerName = document.getElementById("summonerName").value;
+        const tagline = document.getElementById("tagline").value;
+
+        // Vérifier si les champs sont remplis
+        if (!summonerName || !tagline) {
+            alert("Veuillez remplir le nom du joueur et le tagline.");
+            return;
+        }
+
+        // Récupérer les données à partir du fichier JSON (ou de l'API si besoin)
+        try {
+            // Remplacer par le chemin où tu as ton fichier rank_data.json
+            const response = await fetch('static/rank_data.json');
+            if (!response.ok) {
+                throw new Error("Erreur de chargement du fichier JSON");
+            }
+
+            const data = await response.json();
+
+            // Trouver les données pour le joueur recherché
+            const playerData = data.find(player => player.summonerId === summonerName); // ou ajuster en fonction de ce que tu veux
+
+            if (playerData) {
+                // Afficher les informations du joueur
+                document.getElementById("rank-output").innerHTML = `
+                    <strong>Rank:</strong> ${playerData.tier} ${playerData.rank} <br>
+                    <strong>Points:</strong> ${playerData.leaguePoints} <br>
+                    <strong>Victoires:</strong> ${playerData.wins} <br>
+                    <strong>Défaites:</strong> ${playerData.losses}
+                `;
+            } else {
+                document.getElementById("rank-output").innerText = "Aucune donnée trouvée pour ce joueur.";
+            }
+        } catch (error) {
+            console.error("Erreur:", error);
+            alert("Erreur lors de la récupération des données.");
+        }
+    }
+</script>
 </body>
 </html>
