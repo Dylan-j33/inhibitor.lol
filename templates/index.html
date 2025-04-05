@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Profil Joueur - Stats LoL</title>
+    <title>Inhibitor.lol</title>
     <link rel="stylesheet" href="/static/css/styles.css">
     <script defer src="/static/js/script.js"></script>
 </head>
@@ -38,25 +38,37 @@
     </div>
     <div class="container" style="width: 100%";>
         <div class="header">
-            <img class="image-invocateur" src="https://ddragon.leagueoflegends.com/cdn/15.6.1/img/profileicon/6388.png" alt="Avatar du joueur">
+            <img class="image-invocateur" src="{{ iconUrl }}" alt="Avatar du joueur">
             <div class="info">
-                <h1>Zαrmk</h1>
-                <p>#0013</p>
+                <h1>{{ pseudo }}</h1>
+                <p>#{{ tagline }}</p>
             </div>
             <div style="text-align: center;" class="info">
                 <h1 style="color: white !important;">Solo/Duo</h1>
-                <img src="https://support-leagueoflegends.riotgames.com/hc/article_attachments/36727001221011">
-                <p id="rank-soloq">2167LP</p>
+                <img src="{{ rankIconSoloQ }}">
+                {% if rankSoloQ != "Non classé" %}
+                <p id="rank-soloq">{{ rankSoloQ }} {{ divisionSoloQ }} - {{ lpSoloQ }} LP</p>
+                {% else %}
+                <p>No Flex Queue rank found.</p>
+                {% endif %}
             </div>
             <div style="text-align: center;"  class="info">
                 <h1 style="color: white !important;">Flex</h1>
-                <img src="https://support-leagueoflegends.riotgames.com/hc/article_attachments/36727001221011">
-                <p>2167LP</p>
+                <img src="{{ rankIconFlexQ }}">
+                {% if rankFlexQ != "Non classé" %}
+                <p id="rank-soloq">{{ rankFlexQ }} {{ divisionFlexQ }} -  {{ lpFlexQ }} LP</p>
+                {% else %}
+                <p>No Flex Queue rank found.</p>
+                {% endif %}
             </div>
             <div style="text-align: center;"  class="info">
                 <h1 style="color: white !important;">TFT</h1>
-                <img src="https://support-leagueoflegends.riotgames.com/hc/article_attachments/36727001221011">
-                <p>2167LP</p>
+                <img src="{{ rankIconTFTQ }}">
+                {% if rankTFTQ != "Non classé" %}
+                <p id="rank-soloq">{{ rankTFTQ }} {{ divisionTFTQ }} -  {{ lpTFTQ }} LP</p>
+                {% else %}
+                <p>No TFT Queue rank found.</p>
+                {% endif %}
             </div>
         </div>
 

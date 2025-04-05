@@ -10,8 +10,10 @@
 -le winrate par role
 -l'icone de profil
 
-choix langage : python / FastAPI
+technos : python / FastAPI / jinja
 
 lancer le site : python -m uvicorn main:app --reload
 
 https://fastapi.tiangolo.com/fr/
+
+TODO : unranked affichage, icone invocateur
