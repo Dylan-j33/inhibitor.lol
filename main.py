@@ -26,6 +26,10 @@ rank_icons = {
     "CHALLENGER": "challenger.png"
 }
 
+@app.get("/", response_class=HTMLResponse)
+async def nouvelle_page(request: Request):
+    return templates.TemplateResponse("listeProfils.html", {"request": request})
+
 @app.get("/{pseudo}/{tagline}", response_class=HTMLResponse)
 async def get_player_data(request: Request, pseudo: str, tagline: str):
     async with httpx.AsyncClient() as client:
@@ -33,7 +37,7 @@ async def get_player_data(request: Request, pseudo: str, tagline: str):
         account_url = f"https://europe.api.riotgames.com/riot/account/v1/accounts/by-riot-id/{pseudo}/{tagline}"
         account_response = await client.get(account_url, headers=headers)
         if account_response.status_code != 200:
-            return templates.TemplateResponse("index.html", {
+            return templates.TemplateResponse("profil.html", {
                 "request": request,
                 "error": "Joueur non trouvé"
             })
@@ -63,7 +67,7 @@ async def get_player_data(request: Request, pseudo: str, tagline: str):
         rank_icon_flex = rank_icons.get(flexq["tier"], "unranked.png") if flexq else "unranked.png"
         rank_icon_tft = rank_icons.get(tftq["tier"], "unranked.png") if tftq else "unranked.png"
 
-        return templates.TemplateResponse("index.html", {
+        return templates.TemplateResponse("profil.html", {
             "request": request,
             "pseudo": pseudo,
             "tagline": tagline,

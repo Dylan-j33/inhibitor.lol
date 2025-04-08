@@ -131,3 +131,18 @@ body {
 .items {
     display: flex;
 }
+
+.acc-list {
+    display: flex;
+    width: 25%;
+    justify-content: space-between;
+}
+
+.acc-list > div {
+    background-color: #1E293B;
+    padding: 10px;
+}
+
+.pseudo-list {
+    color: white;
+}
